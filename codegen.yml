@@ -1,0 +1,17 @@
+schema: "./schema.graphql"
+documents: "./input/**/*.graphql"
+generates:
+  ./gen/types.ts:
+    - typescript
+  ./input/:
+    preset: near-operation-file
+    presetConfig:
+      extension: .tsx
+      folder: gen
+      baseTypesPath: ../gen/types.ts
+    plugins:
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      withHOC: false
+      withHooks: true`
